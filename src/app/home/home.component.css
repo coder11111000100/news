@@ -1,0 +1,27 @@
+
+.example-viewport {
+    height: 100vh ;
+  }
+
+  .example-item {
+    height: 50px;
+  }
+
+ .elem {
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+} 
+
+.elem::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}  
+
+.btn-style {
+   position: fixed;
+   top: 25px; 
+   right: 25px; 
+ 
+   z-index: 1;
+}

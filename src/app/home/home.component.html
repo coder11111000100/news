@@ -1,0 +1,26 @@
+<button *ngIf="!modal; else elseBlock" class="btn-style btn btn-primary" (click)="onClick()">add news</button>
+<ng-template #elseBlock><button class="btn-style btn btn-primary" (click)="onClick()">close</button></ng-template>
+<cdk-virtual-scroll-viewport itemSize="370" class="example-viewport">
+
+    <div *ngIf="loading">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+    <div *cdkVirtualFor="let item of state$ | async " class="container-fluid ">
+        <div class="row  justify-content-md-center ">
+            <div *ngFor=" let item of news; let i = index" class=" card m-3" style="width: 18rem;">
+                <img [src]="item.titleImageUrl" class="card-img-top" alt="...">
+                <div class="card-body row ">
+                    <h5 class="card-title ">{{item.title}}</h5>
+                    <p class="card-text"> {{item.description | slice:0:26}}...</p>
+                    <div class="align-self-end">
+                        <button href="#" class="btn btn-primary" (click)="goToPost(item)" [disabled]="item.isButton">Go
+                            To
+                            Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</cdk-virtual-scroll-viewport>
+
+<app-form-news *ngIf="modal" (addNews)="onAddNews($event)"></app-form-news>

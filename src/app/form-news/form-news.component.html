@@ -1,0 +1,16 @@
+<div class="conteiner mb-3">
+    <form class="modals rounded-2" [formGroup]="newsForm">
+        <label for="titleFile" class="form-label">header</label>
+        <input type="text" class="form-control" name="title" id="v" placeholder="please input title"
+            formControlName="title">
+
+        <label for="textFile" class="form-label">description news</label>
+        <textarea class="form-control" name="description" aria-label="With textarea" id="textFile"
+            formControlName="description"></textarea>
+
+        <label for="formFile" class="form-label">Load file</label>
+        <input class="form-control" type="file" id="formFile" name="photo" (change)="onFileSelect($event)"
+            enctype="multipart/form-data" method="post">
+        <button type="submit" class="btn btn-primary mt-3" (click)="onSubmit()"> Add News</button>
+    </form>
+</div>
